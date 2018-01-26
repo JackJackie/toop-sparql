@@ -1,0 +1,14 @@
+#+ endpoint: http://fuseki:3030/TOOP/query
+#+ method: GET
+#+ summary: select all TOOP concepts of the registered organization
+
+PREFIX toop: <http://toop.tno.nl/organization#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?s ?p
+WHERE {
+	?s rdfs:subClassOf  ?o .
+	FILTER (?s = toop:RegisteredOrganization)
+	?o owl:onProperty ?p .
+}
