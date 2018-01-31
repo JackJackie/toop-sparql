@@ -1,14 +1,16 @@
 #+ endpoint: http://fuseki:3030/TOOP/query
 #+ method: GET
-#+ summary: select all TOOP concepts of the registered organization
+#+ summary: select the TOOP concept that is mapped to a given local data element
 
 PREFIX toop: <http://toop.tno.nl/organization#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX nhr: <http://example.register.nl/nationaalhandelsregister#>
 
-SELECT ?s ?p
+SELECT ?s ?p ?o
 WHERE {
-	?s rdfs:subClassOf  ?o .
-	FILTER (?s = ?_scope)
-	?o owl:onProperty ?p .
+  ?s ?p ?o .	
+  FILTER (?p = owl:equivalentClass)
+  FILTER (STR(?s) = "http://toop.tno.nl/organization#CompanyCode")
 }
+
