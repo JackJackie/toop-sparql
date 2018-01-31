@@ -11,6 +11,6 @@ SELECT ?s ?p ?o
 WHERE {
   ?s ?p ?o .	
   FILTER (?p = owl:equivalentClass)
-  FILTER (STR(?s) = CONCAT("http://toop.tno.nl/organization#","CompanyCode"))
+  FILTER (STR(?s) = CONCAT("http://toop.tno.nl/organization#",?_concept))
 }
 
