@@ -2,7 +2,7 @@
 #+ method: GET
 #+ summary: select the local data elements that are mapped to a TOOP concept
 
-PREFIX toop: <http://toop.tno.nl/organization#>
+PREFIX toop: <http://toop.eu/organization#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX nhr: <http://example.register.nl/nationaalhandelsregister#>
@@ -11,6 +11,6 @@ SELECT ?s ?p ?o
 WHERE {
   ?s ?p ?o .	
   FILTER (?p = owl:equivalentClass)
-  FILTER (STR(?s) = CONCAT("http://toop.tno.nl/organization#",?_concept))
+  FILTER (STR(?s) = CONCAT("http://toop.eu/organization#",?_concept))
 }
 

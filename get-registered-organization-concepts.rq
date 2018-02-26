@@ -2,7 +2,7 @@
 #+ method: GET
 #+ summary: select all TOOP concepts of the registered organization
 
-PREFIX toop: <http://toop.tno.nl/organization#>
+PREFIX toop: <http://toop.eu/organization#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
