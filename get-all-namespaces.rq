@@ -10,6 +10,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 SELECT DISTINCT ?ns
 WHERE {
   ?s ?p ?o .
-  FILTER (STRSTARTS(str(?o),"http://toop.")).
+  FILTER (STRSTARTS(str(?o),"http://toop.") || STRSTARTS(str(?o),"http://example.")).
 BIND (STRBEFORE(?o,"#") AS ?ns)
 }
