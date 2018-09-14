@@ -11,5 +11,6 @@ WHERE {
     FILTER ((?p = rdfs:subClassOf) || (?p = rdfs:subPropertyOf)) .
     FILTER ((STRSTARTS(str(?s), ?_sourcenamespace) && STRSTARTS(str(?o), ?_targetnamespace)) || (STRSTARTS(str(?s), ?_targetnamespace) && STRSTARTS(str(?o), ?_sourcenamespace))) .
 }
+ORDER BY ?s
 
 
