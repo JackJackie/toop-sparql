@@ -1,0 +1,18 @@
+#+ endpoint: http://fuseki:3030/TOOP/query
+#+ method: GET
+#+ summary: select the pairs of grouped concepts and the concepts part of the group in the TOOP CSM
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX toop: <http://toop.eu/registered-organization#>
+
+SELECT ?conceptGroup ?concept
+WHERE {
+  ?conceptGroup a owl:Class .
+  FILTER (STRSTARTS(str(?conceptGroup),"http://toop.eu")) .
+  ?conceptGroup rdfs:subClassOf ?x .
+  ?x owl:onProperty ?concept .
+  FILTER (STRSTARTS(str(?concept),"http://toop.eu")) .
+}
